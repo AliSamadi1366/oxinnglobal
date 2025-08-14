@@ -1,13 +1,15 @@
-import Document, { Head, Html, Main, NextScript } from "next/document";
-import { AppConfig } from "../utils/AppConfig";
+/* eslint-disable class-methods-use-this */
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 
-// Need to create a custom _document because i18n support is not compatible with `next export`.
-class MyDocument extends Document {
+import { AppConfig } from '../utils/AppConfig';
+
+// Custom _document because i18n + `next export`
+export default class MyDocument extends Document {
   render() {
     return (
       <Html lang={AppConfig.locale}>
         <Head>
-          <title>OxinnGlobal</title>
+          {/* Titles should not be in _document. Set per-page. */}
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>
@@ -18,5 +20,3 @@ class MyDocument extends Document {
     );
   }
 }
-
-export default MyDocument;

@@ -1,5 +1,15 @@
+import Head from 'next/head';
+
 import { Base } from '../templates/Base';
 
-const Index = () => <Base />;
-
-export default Index;
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>OxingGlobal</title>
+        <meta name="description" content="OxingGlobal — official website" />
+      </Head>
+      <Base />
+    </>
+  );
+}
